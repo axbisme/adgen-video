@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { generateAdCopy } = require('./openaiService');
+const { generateAdCopy } = require('./llmService');
 const { renderVideo } = require('./ffmpegService');
 
 router.post('/generate', async (req, res) => {

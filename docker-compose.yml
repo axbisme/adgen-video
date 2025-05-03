@@ -10,5 +10,7 @@ services:
       - ./server/videos:/app/videos
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LLM_PROVIDER=${LLM_PROVIDER}
+      - GROQ_API_KEY=${GROQ_API_KEY}
     env_file:
       - .env

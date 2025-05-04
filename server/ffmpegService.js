@@ -41,12 +41,12 @@ async function renderVideo(text, product) {
             fontfile: FONT_PATH,
             textfile: tempTextPath,
             fontcolor: 'white',
-            fontsize: 24,
-            x: 10,
-            y: 'h-text_h-20',
-            box: 1,
-            boxcolor: 'green@0.6',
-            boxborderw: 10
+            fontsize: 32,
+            x: '(w-text_w)/2',
+            y: '(h-text_h)/2 + 150',
+            box: 0,
+            boxcolor: 'black@0.1',
+            line_spacing: 6
           }
         },
        // Scale the logo to 100x100
@@ -55,15 +55,18 @@ async function renderVideo(text, product) {
             inputs: '1:v',
             outputs: 'logo_scaled',
             options: {
-            w: 150,
-            h: 150
+            w: 200,
+            h: 200
             }
         },
         // Overlay the scaled logo on the texted video
         {
-            filter: 'overlay',
-            inputs: ['texted', 'logo_scaled'],
-            options: { x: 10, y: 10 }
+          filter: 'overlay',
+          inputs: ['texted', 'logo_scaled'],
+          options: {
+            x: '(main_w-overlay_w)/2',
+            y: '(main_h-overlay_h)/2'
+          }
         }
       ])
       .output(outputPath)

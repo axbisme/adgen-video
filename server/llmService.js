@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 async function generateAdCopy(product, message, tone) {
-  const prompt = `Write a ${tone} ad copy for a product called "${product}". Highlight this message: ${message}`;
+  const prompt = `Write a ${tone} ad copy for a product called "${product}". Highlight this message: ${message}. Use 40 character or less.`;
 
   try {
     const res = await axios.post(

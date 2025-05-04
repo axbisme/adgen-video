@@ -9,7 +9,7 @@ router.post('/generate', async (req, res) => {
   try {
     const adCopy = await generateAdCopy(product, message, tone);
     const videoPath = await renderVideo(adCopy, product);
-    res.json({ adCopy, videoUrl: `/videos/${videoPath}` });
+    res.json({ adCopy, videoUrl: `/videos/${videoPath}`, filename: videoPath });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to generate video ad' });

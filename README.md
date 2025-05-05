@@ -35,6 +35,28 @@ Open AI for more robust solution. Designed to be fast, intuitive, and portable v
 
 ---
 
+## Demo
+
+### Screenshots
+
+#### This is the initial screen where users enter their product name, tone, and message.
+![Screen 1](server/assets/screen1.png)
+
+![Screen 2](server/assets/screen2.png)
+
+![Screen 3](server/assets/screen3.png)
+
+#### System renders new video with text and logo overlay. Text is generated from groq api and llama LLM. 
+
+![Screen 4](server/assets/screen4.png)
+
+![Screen 5](server/assets/screen5.png)
+
+### Video
+![Video 1](server/assets/demo.mp4)
+
+---
+
 ## Getting Started
 
 ### Prerequisites
@@ -62,6 +84,7 @@ Open AI for more robust solution. Designed to be fast, intuitive, and portable v
 
     Backend API: http://localhost:5000/api/generate
 
+---
 
 ### Manual Setup
 
@@ -77,9 +100,13 @@ cd client
 npm install
 npm start
 
+---
+
 ### Note
 OPENAI_API_KEY=your_openai_key_here
 Make sure FFmpeg is installed and available in your system PATH if not using Docker.
+
+---
 
 ### Usage
 1. Enter your product name, tone, and message
@@ -87,25 +114,33 @@ Make sure FFmpeg is installed and available in your system PATH if not using Doc
 3. The AI generates a script, FFmpeg renders the video
 4. Preview or download your generated ad
 
+---
+
+### Short-Term TODOs (MVP Polish)
+- Implement automated testing: Add unit and integration tests using Jest for backend and frontend, plus end-to-end tests with Playwright.
+
+- Input validation and sanitization: Add backend input schema validation using libraries like Joi or zod to prevent injection and malformed prompts.
+
+- Environment-based configuration: Introduce dotenv-based config switching (e.g., development, production).
+
+- Video progress/loading indicator: Improve UX by showing percent-complete or progress bar during video generation.
+
+- Drag-and-drop UI polish: Replace or enhance static input fields with more dynamic interaction, such as drag-and-drop tone presets or example templates.
+
+### Long-Term TODOs (Production Ready)
+- Deploy to cloud infrastructure: Deploy to AWS (e.g., ECS + S3 for video storage) with CI/CD pipelines.
+
+- Replace local video storage: Move from local file system to cloud storage like Amazon S3 or Cloudflare R2, with signed URLs for downloads.
+
+- Auth + user profiles: Add authentication (e.g., Firebase or Auth0) to support saving past videos, editing drafts, and usage limits.
+
+- AI script tuning: Use prompt engineering or fine-tuned models to support multiple ad styles (e.g., TikTok, YouTube, corporate, etc.).
+
+- Template system: Build a reusable component or JSON-driven video layout system for multiple branded templates.
+
+---
+
 ### License
 This project is open source and licensed under the MIT License.
-
-## Demo
-
-### Screenshots
-
-#### This is the initial screen where users enter their product name, tone, and message.
-![Screen 1](server/assets/screen1.png)
-
-![Screen 2](server/assets/screen2.png)
-
-![Screen 3](server/assets/screen3.png)
-
-#### System renders new video with text and logo overlay. Text is generated from groq api and llama LLM. 
-
-![Screen 4](server/assets/screen4.png)
-
-![Screen 5](server/assets/screen5.png)
-
-### Video
-![Video 1](server/assets/demo.mp4)
+ 
+ 

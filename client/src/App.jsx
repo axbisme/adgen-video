@@ -1,40 +1,41 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import GenerateButton from './components/GenerateButton';
-import VideoPreview from './components/VideoPreview';
-import AdForm from './components/AdForm';
+import React, { useState } from "react";
+import axios from "axios";
+import GenerateButton from "./components/GenerateButton";
+import VideoPreview from "./components/VideoPreview";
+import AdForm from "./components/AdForm";
+import { ERROR_MESSAGES, API } from "./constant";
 
 function App() {
-  const [product, setProduct] = useState('');
-  const [message, setMessage] = useState('');
-  const [tone, setTone] = useState('');
+  const [product, setProduct] = useState("");
+  const [message, setMessage] = useState("");
+  const [tone, setTone] = useState("");
   const [loading, setLoading] = useState(false);
   const [videoUrl, setVideoUrl] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const isFormValid = product.trim() && message.trim() && tone.trim();
 
   const handleSubmit = async () => {
     if (!isFormValid) {
-      setError('Please fill in all fields before generating the video.');
+      setError(ERROR_MESSAGES.MISSING_FIELDS);
       return;
     }
 
     setLoading(true);
-    setError('');
+    setError("");
     setVideoUrl(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/generate', {
+      const response = await axios.post(API.GENERATE_VIDEO, {
         product,
         message,
-        tone
+        tone,
       });
 
-      setVideoUrl(`http://localhost:5000/videos/${response.data.filename}`);
+      setVideoUrl(`${API.VIDEO_BASE_URL}${response.data.filename}`);
     } catch (err) {
-      console.error('Error generating ad:', err);
-      alert('Something went wrong!');
+      console.error("Error generating ad:", err);
+      alert(ERROR_MESSAGES.GENERATION_FAILED);
     } finally {
       setLoading(false);
     }

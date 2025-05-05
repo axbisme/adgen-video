@@ -91,13 +91,17 @@ Open AI for more robust solution. Designed to be fast, intuitive, and portable v
 Backend:
 
 cd server
+
 npm install
+
 npm start
 
 Frontend:
 
 cd client
+
 npm install
+
 npm start
 
 ---
@@ -110,7 +114,7 @@ Make sure FFmpeg is installed and available in your system PATH if not using Doc
 
 ### Usage
 1. Enter your product name, tone, and message
-2. Click "Generate"
+2. Click "Create"
 3. The AI generates a script, FFmpeg renders the video
 4. Preview or download your generated ad
 

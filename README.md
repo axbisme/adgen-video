@@ -1,7 +1,7 @@
 # AdGen Video
 
 AdGen Video is a full-stack AI-powered application that generates short marketing videos based on user-provided product descriptions, tones, and messages. 
-It leverages the Groq API to craft ad copy and FFmpeg to render simple video ads with captions. However, code can easily be modified to utilize
+It leverages the Groq API (llama3 LLM) to craft ad copy and FFmpeg to render simple video ads with captions. However, code can easily be modified to utilize
 Open AI for more robust solution. Designed to be fast, intuitive, and portable via Docker.
 
 ## Features
@@ -89,3 +89,23 @@ Make sure FFmpeg is installed and available in your system PATH if not using Doc
 
 ### License
 This project is open source and licensed under the MIT License.
+
+## Demo
+
+### Screenshots
+
+#### This is the initial screen where users enter their product name, tone, and message.
+![Screen 1](server/assets/screen1.png)
+
+![Screen 2](server/assets/screen2.png)
+
+![Screen 3](server/assets/screen3.png)
+
+#### System renders new video with text and logo overlay. Text is generated from groq api and llama LLM. 
+
+![Screen 4](server/assets/screen4.png)
+
+![Screen 5](server/assets/screen5.png)
+
+### Video
+![Video 1](server/assets/demo.mp4)

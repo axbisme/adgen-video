@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import GenerateButton from './components/GenerateButton';
 import VideoPreview from './components/VideoPreview';
-
+import AdForm from './components/AdForm';
 
 function App() {
   const [product, setProduct] = useState('');
@@ -44,43 +44,18 @@ function App() {
     <div className="container mt-5" style={{ maxWidth: 600 }}>
       <h2 className="mb-4 text-center">Create Your Video Ad</h2>
 
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control shadow-sm"
-            placeholder="Enter product name"
-            value={product}
-            onChange={(e) => setProduct(e.target.value)}
-          />
-        </div>
-        <div className="mb-3">
-          <textarea
-            className="form-control shadow-sm"
-            placeholder="Enter specific messaging"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows={4}
-          />
-        </div>
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control shadow-sm"
-            placeholder="Enter tone (e.g., energetic, professional)"
-            value={tone}
-            onChange={(e) => setTone(e.target.value)}
-          />
-        </div>
-      </form>
+      <AdForm
+        product={product}
+        message={message}
+        tone={tone}
+        setProduct={setProduct}
+        setMessage={setMessage}
+        setTone={setTone}
+        error={error}
+        isFormValid={isFormValid}
+      />
 
-      {error && (
-        <div className="alert alert-danger" role="alert">
-          {error}
-        </div>
-      )}
-
-      <div className="container text-center">
+      <div className="container text-center mt-3">
         <GenerateButton
           onGenerate={handleSubmit}
           disabled={loading || !isFormValid}

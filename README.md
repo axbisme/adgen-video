@@ -142,6 +142,8 @@ Make sure FFmpeg is installed and available in your system PATH if not using Doc
 
 - Template system: Build a reusable component or JSON-driven video layout system for multiple branded templates.
 
+- Stock video integration: Connect to a large searchable video library (e.g., Pexels, Pixabay, or a custom S3 bucket) to allow users to choose from stock footage.
+
 ---
 
 ### License
